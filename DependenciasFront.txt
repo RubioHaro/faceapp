@@ -1,0 +1,6 @@
+#Instalar Node
+sudo snap install node --classic
+#Instalar Babel
+npm install --save-dev @babel/plugin-proposal-class-properties
+# Instalar dependencias
+npm install
