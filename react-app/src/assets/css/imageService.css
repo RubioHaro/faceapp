@@ -13,12 +13,9 @@ img:hover {
 }
 
 #upload button {
-    margin-top: 1rem; /* Espacio superior para el botón */
-    display: block; /* Para centrar el botón */
-    margin-left: auto;
-    margin-right: auto;
     width: 10rem; /* Ancho del botón (puedes ajustar el valor) */
-    padding: 0.5rem; /* Espaciado interno del botón */
+    padding: 1.1rem; /* Espaciado interno del botón */
+    margin: 1.1rem;
 }
 
 #processing {

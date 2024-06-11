@@ -15,8 +15,11 @@ const ProcessingResults = ({ responseDataList, onSendData, resultado }) => {
 
     return (
         <section id="processing">
-            <h1>Módulo de Procesamiento</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+            <h1 className='text-4xl font-semibold'>Módulo de Procesamiento</h1>
+            <p className='text-2xl py-10'>
+                A continuación se presentan los resultados del procesamiento, incluyendo las imágenes analizadas y las 
+                características extraídas:
+            </p>
             {resultado && <p>{resultado}</p>}
             {responseDataList.map((data, index) => (
                 <div key={index}>
@@ -59,11 +62,14 @@ const ProcessingResults = ({ responseDataList, onSendData, resultado }) => {
                         <img src={`data:image/jpeg;base64,${data.landmarks}`} alt={`Landmarks ${index}`} />
                     </div>
                     <div className="form-container">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+                        <p className='text-2xl py-10'>
+                            Puede ajustar los parámetros de etnia, género y edad utilizando los menús desplegables a continuación. 
+                            Una vez seleccionados los valores deseados, haga clic en "Enviar Datos" para continuar con el procesamiento.
+                        </p>
                         <form>
                             <label>
                                 Etnia:
-                                <select value={selectedValues[index] && selectedValues[index].etnia} onChange={(e) => handleSelectChange(index, 'etnia', e.target.value)}>
+                                <select value={(selectedValues[index] && selectedValues[index].etnia) || ''} onChange={(e) => handleSelectChange(index, 'etnia', e.target.value)}>
                                     <option value="">Seleccione etnia</option>
                                     <option value="Afro">Afrodescendiente</option>
                                     <option value="Arab">Árabe/Medio Oriente</option>
@@ -74,7 +80,7 @@ const ProcessingResults = ({ responseDataList, onSendData, resultado }) => {
                             </label>
                             <label>
                                 Género:
-                                <select value={selectedValues[index] && selectedValues[index].genero} onChange={(e) => handleSelectChange(index, 'genero', e.target.value)}>
+                                <select value={(selectedValues[index] && selectedValues[index].genero) || ''} onChange={(e) => handleSelectChange(index, 'genero', e.target.value)}>
                                     <option value="">Seleccione género</option>
                                     <option value="man_">Masculino</option>
                                     <option value="woman_">Femenino</option>
@@ -82,7 +88,7 @@ const ProcessingResults = ({ responseDataList, onSendData, resultado }) => {
                             </label>
                             <label>
                                 Edad:
-                                <select value={selectedValues[index] && selectedValues[index].edad} onChange={(e) => handleSelectChange(index, 'edad', e.target.value)}>
+                                <select value={(selectedValues[index] && selectedValues[index].edad) || ''} onChange={(e) => handleSelectChange(index, 'edad', e.target.value)}>
                                     <option value="">Seleccione rango de edad</option>
                                     <option value="20">0 - 10</option>
                                     <option value="30">10 - 20</option>
@@ -97,7 +103,7 @@ const ProcessingResults = ({ responseDataList, onSendData, resultado }) => {
                             </label>
                         </form>
                     </div>
-                    <button onClick={() => onSendData(index, selectedValues[index])}>Enviar Datos</button>
+                    <button className='text-white' onClick={() => onSendData(index, selectedValues[index])}>Enviar Datos</button>
                 </div>
             ))}
         </section>
